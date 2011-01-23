@@ -13,11 +13,13 @@ Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	32f58ecd1ed6ed397d002c26f0f343d3
 URL:		http://pear.php.net/package/File_Bittorrent2/
-BuildRequires:	php-pear-PEAR-core
+BuildRequires:	/usr/bin/php
+BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-common >= 4:5.0.0
 Requires:	php-pear
+Obsoletes:	php-pear-File_Bittorrent2-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,20 +44,6 @@ oraz pobrać statystykę ze strony danego torrenta.
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
-Group:		Development/Languages/PHP
-Requires:	%{name} = %{version}-%{release}
-AutoProv:	no
-AutoReq:	no
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl.UTF-8
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
 
@@ -73,7 +61,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc docs/File_Bittorrent2/{example.php,example_mktorrent.php,install-x86-universal-2005.0.iso.torrent,scrape.php,torrentinfo.php}
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/File/Bittorrent2
-
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/File_Bittorrent2
