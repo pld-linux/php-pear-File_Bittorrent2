@@ -1,6 +1,4 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		File
-%define		_subclass	Bittorrent2
 %define		_status		stable
 %define		_pearname	File_Bittorrent2
 Summary:	%{_pearname} - Decode and Encode data in Bittorrent format
@@ -13,7 +11,6 @@ Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	32f58ecd1ed6ed397d002c26f0f343d3
 URL:		http://pear.php.net/package/File_Bittorrent2/
-BuildRequires:	/usr/bin/php
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
