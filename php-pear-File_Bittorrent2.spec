@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.php
 %define		_status		stable
 %define		_pearname	File_Bittorrent2
 Summary:	%{_pearname} - Decode and Encode data in Bittorrent format
